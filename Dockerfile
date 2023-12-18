@@ -1,9 +1,10 @@
 FROM openjdk:17-jdk-slim-buster
 WORKDIR /app
 
-COPY app/build/lib/* build/lib/
+COPY build/libs/* build/lib/
 
-COPY app/build/libs/app.jar build/
+COPY build/libs/jtf-dynamodb-application-1.0.0.jar build/
 
 WORKDIR /app/build
-ENTRYPOINT java -jar app.jar
+EXPOSE 8585
+ENTRYPOINT java -jar jtf-dynamodb-application-1.0.0.jar
